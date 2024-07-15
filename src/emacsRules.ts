@@ -35,7 +35,7 @@ const emacsRules = [
         map('h', '⌃').to('delete_or_backspace'),
         map('w', '⌃').to(markMode.disable).to('x', '⌘'),
         map('w', '⌥').to(markMode.disable).to('c', '⌘'),
-        map('y', '⌃').to('v', '⌘'),
+        map('y', '⌃').to(markMode.disable).to('v', '⌘'),
         map('/', '⌃').to('z', '⌘'),
         map('k', '⌃').to('→', ['⌘', '⇧']).to('x', '⌘'),
 
