@@ -23,12 +23,18 @@ const ctrlXMode = createMode('ctrl+x')
 const searchMode = createMode('ctrl+s')
 const markMode = createMode('ctrl+space')
 
-
+const apps = {
+  emacs: /^org\.gnu\.Emacs$/,
+  terminal: /^com\.apple\.Terminal$/,
+  vscode: /^com\.microsoft\.VSCode$/,
+  jetbrains: /^com\.jetbrains\..*$/,
+  figma: /^com\.figma\.Desktop$/,
+}
 const unlessApps = ifApp([
-  /^org\.gnu\.Emacs$/,
-  /^com\.jetbrains\..*/,
-  /^com\.apple\.Terminal$/,
-  /^com\.microsoft\.VSCode$/,
+  apps.emacs,
+  apps.jetbrains,
+  apps.terminal,
+  apps.vscode
 ]).unless()
 
 writeToProfile('personal', [
@@ -94,4 +100,13 @@ writeToProfile('personal', [
 
       map('x', '⌃').to(ctrlXMode.enable).toDelayedAction(ctrlXMode.disable,ctrlXMode.disable)
   ]),
+
+  rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
+      map('g', '⌃').to('⎋'),
+  ]),
+
+  rule('[Figma] Basic keys', ifApp(apps.figma)).manipulators([
+    map('g', '⌃').to('⎋'),
+    map('t', '⌃').to('/', '⌘'),
+  ])
 ])
