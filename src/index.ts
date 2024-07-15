@@ -25,10 +25,10 @@ const markMode = createMode('ctrl+space')
 
 
 const unlessApps = ifApp([
-    /^org\.gnu\.Emacs$/,
-    /^com\.jetbrains\..*/,
-    /^com\.apple\.Terminal$/,
- 　 /^com\.microsoft\.VSCode$/,
+  /^org\.gnu\.Emacs$/,
+  /^com\.jetbrains\..*/,
+  /^com\.apple\.Terminal$/,
+  /^com\.microsoft\.VSCode$/,
 ]).unless()
 
 writeToProfile('personal', [
