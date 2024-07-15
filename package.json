@@ -1,5 +1,5 @@
 {
-  "name": "karabiner_config",
+  "name": "karabiner-config",
   "description": "karabiner config in karabiner.ts",
   "scripts": {
     "build": "ts-node src/index.ts",
