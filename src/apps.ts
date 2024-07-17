@@ -4,6 +4,7 @@ const apps = {
     vscode: /^com\.microsoft\.VSCode$/,
     jetbrains: /^com\.jetbrains\..*$/,
     figma: /^com\.figma\.Desktop$/,
+    notion: /^notion\.id$/,
 }
 
 export default apps
