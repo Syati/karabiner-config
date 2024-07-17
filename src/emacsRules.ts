@@ -20,6 +20,8 @@ const ctrlXMode = createMode('ctrl+x')
 const searchMode = createMode('ctrl+s')
 const markMode = createMode('ctrl+space')
 
+const disableAllMode = [searchMode.disable, markMode.disable, ctrlXMode.disable]
+
 const unlessApps = ifApp([
     apps.emacs,
     apps.jetbrains,
@@ -29,8 +31,8 @@ const unlessApps = ifApp([
 
 const emacsRules = [
     rule('[Emacs] Basic keys', unlessApps).manipulators([
-        map('g', '⌃').to([searchMode.disable, markMode.disable]).to('⎋'),
-        map('[', '⌃').to([searchMode.disable, markMode.disable]).to('⎋'),
+        map('g', '⌃').to(disableAllMode).to('⎋'),
+        map('[', '⌃').to(disableAllMode).to('⎋'),
         map('d', '⌃').to('delete_forward'),
         map('h', '⌃').to('delete_or_backspace'),
         map('w', '⌃').to(markMode.disable).to('x', '⌘'),
