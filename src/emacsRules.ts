@@ -65,7 +65,7 @@ const emacsRules = [
         map('s', '⌃',).to('g', '⌘').condition(searchMode.isEnable),
         map('r', '⌃',).to('g', ['⇧', '⌘']).condition(searchMode.isEnable),
 
-        map('s', '⌃').to(searchMode.enable).to('f', '⌘'),
+        map('s', '⌃').to('f', '⌘').to(searchMode.enable)
     ]),
 
     rule('[Emacs] Ctrl-x + keys', unlessApps).manipulators([
