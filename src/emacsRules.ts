@@ -30,6 +30,22 @@ const unlessApps = ifApp([
 ]).unless()
 
 const emacsRules = [
+    rule('[Emacs] Ctrl-x + keys', unlessApps).manipulators([
+        map('c', '⌃').to('q', '⌘').condition(ctrlXMode.isEnable),
+        map('f', '⌃').to('o', '⌘').condition(ctrlXMode.isEnable),
+        map('s', '⌃').to('s', '⌘').condition(ctrlXMode.isEnable),
+        map('k', '⌃').to('w', '⌘').condition(ctrlXMode.isEnable),
+
+        map('x', '⌃').to(ctrlXMode.enable).toDelayedAction(ctrlXMode.disable, ctrlXMode.disable)
+    ]),
+
+    rule('[Emacs] Search keys', unlessApps).manipulators([
+        map('s', '⌃',).to('g', '⌘').condition(searchMode.isEnable),
+        map('r', '⌃',).to('g', ['⇧', '⌘']).condition(searchMode.isEnable),
+
+        map('s', '⌃').to('f', '⌘').to(searchMode.enable).condition(ctrlXMode.isDisable)
+    ]),
+
     rule('[Emacs] Basic keys', unlessApps).manipulators([
         map('g', '⌃').to(disableAllMode).to('⎋'),
         map('[', '⌃').to(disableAllMode).to('⎋'),
@@ -61,22 +77,6 @@ const emacsRules = [
         map('e', '⌃', '⇧').to('→', '⌘'),
         map('v', '⌃', '⇧').to('page_down'),
         map('v', '⌥', '⇧').to('page_up'),
-    ]),
-
-    rule('[Emacs] Search keys', unlessApps).manipulators([
-        map('s', '⌃',).to('g', '⌘').condition(searchMode.isEnable),
-        map('r', '⌃',).to('g', ['⇧', '⌘']).condition(searchMode.isEnable),
-
-        map('s', '⌃').to('f', '⌘').to(searchMode.enable).condition(ctrlXMode.isDisable)
-    ]),
-
-    rule('[Emacs] Ctrl-x + keys', unlessApps).manipulators([
-        map('c', '⌃').to('q', '⌘').condition(ctrlXMode.isEnable),
-        map('f', '⌃').to('o', '⌘').condition(ctrlXMode.isEnable),
-        map('s', '⌃').to('s', '⌘').condition(ctrlXMode.isEnable),
-        map('k', '⌃').to('w', '⌘').condition(ctrlXMode.isEnable),
-
-        map('x', '⌃').to(ctrlXMode.enable).toDelayedAction(ctrlXMode.disable, ctrlXMode.disable)
     ]),
 ]
 
