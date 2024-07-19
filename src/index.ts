@@ -23,10 +23,6 @@ writeToProfile('personal', [
 
     rule('[Notion] Basic keys', ifApp(apps.notion)).manipulators([
         map('t', '⌃').to('k', '⌘'),
-
-        // adjust keys
-        map('f', '⌃⇧').to(']', '⌘'),
-        map('b', '⌃⇧').to('[', '⌘'),
     ]),
 
     ...emacsRules,
