@@ -12,14 +12,22 @@ import {symbolMode, capsToHyperRule} from "./common";
 writeToProfile('personal', [
     symbolMode,
     capsToHyperRule,
-    ...emacsRules,
 
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
         map('g', '⌃').to('⎋'),
     ]),
 
     rule('[Figma] Basic keys', ifApp(apps.figma)).manipulators([
-        map('g', '⌃').to('⎋'),
         map('t', '⌃').to('/', '⌘'),
-    ])
+    ]),
+
+    rule('[Notion] Basic keys', ifApp(apps.notion)).manipulators([
+        map('t', '⌃').to('k', '⌘'),
+
+        // adjust keys
+        map('f', '⌃⇧').to(']', '⌘'),
+        map('b', '⌃⇧').to('[', '⌘'),
+    ]),
+
+    ...emacsRules,
 ])

@@ -29,19 +29,28 @@ const unlessApps = ifApp([
     apps.vscode
 ]).unless()
 
+
+// The keybindings are customized based on the following Emacs keybindings
+// https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 const emacsRules = [
     rule('[Emacs] Ctrl-x + keys', unlessApps).manipulators([
         map('c', '⌃').to('q', '⌘').condition(ctrlXMode.isEnable),
         map('f', '⌃').to('o', '⌘').condition(ctrlXMode.isEnable),
         map('s', '⌃').to('s', '⌘').condition(ctrlXMode.isEnable),
         map('k', '⌃').to('w', '⌘').condition(ctrlXMode.isEnable),
+        map('k', '⌃').to('w', '⌘').condition(ctrlXMode.isEnable),
+
+        map('←',null,'⌃').to('tab', ['⇧', '⌃']).condition(ctrlXMode.isEnable),  // backward tab
+        map('→',null,'⌃').to('tab', ['⌃']).condition(ctrlXMode.isEnable),       // forward tab
+        map('[').to('[', '⌘').condition(ctrlXMode.isEnable),                    // backward page
+        map(']').to(']', '⌘').condition(ctrlXMode.isEnable),                    // forward page
 
         map('x', '⌃').to(ctrlXMode.enable).toDelayedAction(ctrlXMode.disable, ctrlXMode.disable)
     ]),
 
     rule('[Emacs] Search keys', unlessApps).manipulators([
-        map('s', '⌃',).to('g', '⌘').condition(searchMode.isEnable),
-        map('r', '⌃',).to('g', ['⇧', '⌘']).condition(searchMode.isEnable),
+        map('s', '⌃').to('g', '⌘').condition(searchMode.isEnable),
+        map('r', '⌃').to('g', ['⇧', '⌘']).condition(searchMode.isEnable),
 
         map('s', '⌃').to('f', '⌘').to(searchMode.enable).condition(ctrlXMode.isDisable)
     ]),
@@ -62,7 +71,6 @@ const emacsRules = [
     ]),
 
     rule('[Emacs] Move cursors', unlessApps).manipulators([
-        // Move cursor
         map('p', '⌃').to('↑', '⇧').condition(markMode.isEnable),
         map('p', '⌃').to('↑'),
         map('n', '⌃').to('↓', '⇧').condition(markMode.isEnable),
@@ -73,8 +81,11 @@ const emacsRules = [
         map('f', '⌃').to('→', '⇧').condition(markMode.isEnable),
         map('f', '⌃').to('→'),
         map('f', '⌥').to('→', '⌥'),
+        map(',', ['⌥', '⇧']).to('↑', '⌘'), // beginning of page
+        map('.', ['⌥', '⇧']).to('↓', '⌘'), // end of page
         map('a', '⌃', '⇧').to('←', ['⇧', '⌘']).condition(markMode.isEnable),
         map('a', '⌃', '⇧').to('←', '⌘'),
+
         map('e', '⌃', '⇧').to('→', ['⇧', '⌘']).condition(markMode.isEnable),
         map('e', '⌃', '⇧').to('→', '⌘'),
         map('v', '⌃', '⇧').to('page_down'),
