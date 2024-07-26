@@ -10,7 +10,7 @@ import {symbolMode, capsToHyperRule} from "./common";
 
 
 writeToProfile('personal', [
-    symbolMode,
+    //symbolMode,
     capsToHyperRule,
 
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
