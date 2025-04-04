@@ -5,6 +5,8 @@ const apps = {
     jetbrains: /^com\.jetbrains\..*$/,
     figma: /^com\.figma\.Desktop$/,
     notion: /^notion\.id$/,
+    chrome: /^com\.google\.Chrome$/,
+    vnc: /^com\.apple\.ScreenSharing$/,
 }
 
 export default apps
