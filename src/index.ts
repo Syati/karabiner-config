@@ -10,8 +10,12 @@ import {symbolMode, capsToHyperRule} from "./common";
 
 
 writeToProfile('personal', [
-    //symbolMode,
+    symbolMode,
     capsToHyperRule,
+
+    rule('[Alfred] shortcuts', ifApp(apps.vnc).unless()).manipulators([
+        map('spacebar', '⌃⇧').to('spacebar', '⌘⌥⌃⇧')
+    ]),
 
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
         map('g', '⌃').to('⎋'),
