@@ -34,8 +34,11 @@ const unlessApps = ifApp([
 // The keybindings are customized based on the following Emacs keybindings
 // https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 const emacsRules = [
-    rule('[Emacs] Ctrl-x + keys', unlessApps).manipulators([
+    rule('[Emacs] For all app').manipulators([
         map('c', '⌃').to('q', '⌘').condition(ctrlXMode.isEnable),
+    ]),
+
+    rule('[Emacs] Ctrl-x + keys', unlessApps).manipulators([
         map('f', '⌃').to('o', '⌘').condition(ctrlXMode.isEnable),
         map('s', '⌃').to('s', '⌘').condition(ctrlXMode.isEnable),
         map('k', '⌃').to('w', '⌘').condition(ctrlXMode.isEnable),
