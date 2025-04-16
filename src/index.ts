@@ -17,6 +17,10 @@ writeToProfile('personal', [
         map('spacebar', '⌃⇧').to('spacebar', '⌘⌥⌃⇧')
     ]),
 
+    rule('[OSX] shortcuts', ifApp(apps.vnc).unless()).manipulators([
+        map('\\', '⌃').to('\\', '⌘⌥⌃⇧')
+    ]),
+
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
         map('g', '⌃').to('⎋'),
     ]),
