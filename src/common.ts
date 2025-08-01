@@ -1,4 +1,5 @@
 import {
+    ifInputSource,
     layer,
     map, NumberKeyValue,
     rule, withMapper,
@@ -22,3 +23,17 @@ export const symbolMode = layer('/', 'symbol-mode').manipulators([
 export const capsToHyperRule = rule('Caps Lock → Hyper').manipulators([
     map('caps_lock').toHyper()
 ])
+
+export const toggleImeRule = rule('IME binding Ctrl+\\').manipulators([
+    map('\\', '⌃').toInputSource({
+        language: '^ja$',
+    }).condition(ifInputSource({
+        language: '^en$',
+    })),    
+    map('\\', '⌃').toInputSource({
+        language: '^en$',
+    }).condition(ifInputSource({
+        language: '^ja$',
+    })),
+])
+

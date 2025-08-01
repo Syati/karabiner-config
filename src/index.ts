@@ -6,12 +6,13 @@ import {
 } from 'karabiner.ts'
 import apps from "./apps";
 import emacsRules from "./emacsRules";
-import {symbolMode, capsToHyperRule} from "./common";
+import {symbolMode, capsToHyperRule, toggleImeRule} from "./common";
 
 
 writeToProfile('personal', [
     symbolMode,
     capsToHyperRule,
+    toggleImeRule,
 
     rule('[Alfred] shortcuts', ifApp(apps.vnc).unless()).manipulators([
         map('spacebar', '⌃⇧').to('spacebar', '⌘⌥⌃⇧')
