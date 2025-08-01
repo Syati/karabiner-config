@@ -3,7 +3,9 @@ import {
     layer,
     map, NumberKeyValue,
     rule, withMapper,
+    ifApp
 } from 'karabiner.ts'
+import apps from "./apps";
 
 // It is not required, but recommended to put symbol alias to layers,
 // (If you type fast, use simlayer instead, see https://evan-liu.github.io/karabiner.ts/rules/simlayer)
@@ -24,12 +26,12 @@ export const capsToHyperRule = rule('Caps Lock → Hyper').manipulators([
     map('caps_lock').toHyper()
 ])
 
-export const toggleImeRule = rule('IME binding Ctrl+\\').manipulators([
+export const toggleImeRule = rule('IME binding Ctrl+\\', ifApp(apps.universalcontrol).unless()).manipulators([
     map('\\', '⌃').toInputSource({
         language: '^ja$',
     }).condition(ifInputSource({
         language: '^en$',
-    })),    
+    })),
     map('\\', '⌃').toInputSource({
         language: '^en$',
     }).condition(ifInputSource({

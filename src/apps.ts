@@ -7,6 +7,7 @@ const apps = {
     notion: /^notion\.id$/,
     chrome: /^com\.google\.Chrome$/,
     vnc: /^com\.apple\.ScreenSharing$/,
+    universalcontrol: /^com\.apple\.universalcontrol$/,
 }
 
 export default apps

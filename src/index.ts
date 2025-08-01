@@ -14,12 +14,9 @@ writeToProfile('personal', [
     capsToHyperRule,
     toggleImeRule,
 
-    rule('[Alfred] shortcuts', ifApp(apps.vnc).unless()).manipulators([
-        map('spacebar', '⌃⇧').to('spacebar', '⌘⌥⌃⇧')
-    ]),
-
-    rule('[OSX] shortcuts', ifApp(apps.vnc).unless()).manipulators([
-        map('\\', '⌃').to('\\', '⌘⌥⌃⇧')
+    rule('[VNC] shortcuts', ifApp(apps.vnc).unless()).manipulators([
+        map('spacebar', '⌃⇧').to('spacebar', '⌘⌥⌃⇧'), // For Alfred shortcuts  
+        map('\\', '⌃').to('\\', '⌘⌥⌃⇧') // For OSX IME Keyboard shortcuts
     ]),
 
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
