@@ -6,15 +6,14 @@ import {
 } from 'karabiner.ts'
 import apps from "./apps";
 import emacsRules from "./emacsRules";
-import {symbolMode, capsToHyperRule, toggleImeRule} from "./common";
+import {symbolMode, capsToHyperRule} from "./common";
 
 
 writeToProfile('personal', [
     symbolMode,
     capsToHyperRule,
-    toggleImeRule,
 
-    rule('[VNC] shortcuts', ifApp(apps.vnc).unless()).manipulators([
+    rule('[VNC] shortcuts', ifApp([apps.vnc, apps.universalcontrol]).unless()).manipulators([
         map('spacebar', '⌃⇧').to('spacebar', '⌘⌥⌃⇧'), // For Alfred shortcuts  
         map('\\', '⌃').to('\\', '⌘⌥⌃⇧') // For OSX IME Keyboard shortcuts
     ]),

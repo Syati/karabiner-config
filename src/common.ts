@@ -26,16 +26,17 @@ export const capsToHyperRule = rule('Caps Lock → Hyper').manipulators([
     map('caps_lock').toHyper()
 ])
 
-export const toggleImeRule = rule('IME binding Ctrl+\\', ifApp([apps.universalcontrol, apps.vnc]).unless()).manipulators([
-    map('\\', '⌃').toInputSource({
-        language: '^ja$',
-    }).condition(ifInputSource({
-        language: '^en$',
-    })),
-    map('\\', '⌃').toInputSource({
-        language: '^en$',
-    }).condition(ifInputSource({
-        language: '^ja$',
-    })),
-])
+// IME中にtoggle するとバグるので一旦利用しない
+// export const toggleImeRule = rule('IME binding Ctrl+\\', ifApp([apps.universalcontrol, apps.vnc]).unless()).manipulators([
+//     map('\\', '⌃').toInputSource({
+//         language: '^ja$',
+//     }).condition(ifInputSource({
+//         language: '^en$',
+//     })),
+//     map('\\', '⌃').toInputSource({
+//         language: '^en$',
+//     }).condition(ifInputSource({
+//         language: '^ja$',
+//     })),
+// ])
 
