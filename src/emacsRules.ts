@@ -28,6 +28,7 @@ const unlessApps = ifApp([
     apps.terminal,
     apps.vscode,
     apps.vnc,
+    apps.universalcontrol,
 ]).unless()
 
 
