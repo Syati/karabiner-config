@@ -2,7 +2,7 @@ import {
     map,
     rule,
     writeToProfile,
-    ifApp,
+    ifApp
 } from 'karabiner.ts'
 import apps from "./apps";
 import emacsRules from "./emacsRules";
@@ -13,10 +13,10 @@ import {symbolMode, capsToHyperRule} from "./common";
 writeToProfile('personal', [
     //symbolMode,
     capsToHyperRule,
+    
 
     rule('[VNC] shortcuts', ifApp([apps.vnc, apps.universalcontrol]).unless()).manipulators([
-        map('spacebar', '⌃⇧').to('spacebar', '⌘⌥⌃⇧'), // For Alfred shortcuts  
-        map('\\', '⌃').to('\\', '⌘⌥⌃⇧') // For OSX IME Keyboard shortcuts
+        map('spacebar', '⌃⇧').to('spacebar', '⌃⇧')
     ]),
 
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
