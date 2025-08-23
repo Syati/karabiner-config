@@ -6,11 +6,12 @@ import {
 } from 'karabiner.ts'
 import apps from "./apps";
 import emacsRules from "./emacsRules";
+import chromeRules from './chromeRule';
 import {symbolMode, capsToHyperRule} from "./common";
 
 
 writeToProfile('personal', [
-    symbolMode,
+    //symbolMode,
     capsToHyperRule,
 
     rule('[VNC] shortcuts', ifApp([apps.vnc, apps.universalcontrol]).unless()).manipulators([
@@ -31,4 +32,5 @@ writeToProfile('personal', [
     ]),
 
     ...emacsRules,
+    ...chromeRules
 ])
