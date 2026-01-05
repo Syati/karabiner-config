@@ -8,6 +8,7 @@ const apps = {
     chrome: /^com\.google\.Chrome$/,
     vnc: /^com\.apple\.ScreenSharing$/,
     universalcontrol: /^com\.apple\.universalcontrol$/,
+    ghostty: /^com\.mitchellh\.ghostty$/
 }
 
 export default apps

@@ -26,6 +26,7 @@ const unlessApps = ifApp([
     apps.emacs,
     apps.jetbrains,
     apps.terminal,
+    apps.ghostty,
     apps.vscode,
     apps.vnc
 ]).unless()
