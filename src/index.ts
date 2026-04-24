@@ -16,7 +16,7 @@ writeToProfile('personal', [
     //symbolMode,
     f13ToHyperRule,
     f14ToCtrlAltShiftRule,
-    cmdTab
+    //cmdTab,
 
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
         map('g', '⌃').to('⎋'),
