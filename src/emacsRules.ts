@@ -25,6 +25,7 @@ const disableAllMode = [searchMode.disable, markMode.disable, ctrlXMode.disable]
 const unlessApps = ifApp([
     apps.emacs,
     apps.jetbrains,
+    apps.air,
     apps.terminal,
     apps.ghostty,
     apps.vscode,

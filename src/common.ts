@@ -22,9 +22,18 @@ export const symbolMode = layer('/', 'symbol-mode').manipulators([
 ])
 
 
-export const capsToHyperRule = rule('Caps Lock → Hyper').manipulators([
-    map('caps_lock').toHyper()
+export const f13ToHyperRule = rule('F13 → Hyper').manipulators([
+    map('f13').toHyper()
 ])
+
+export const f14ToCtrlAltShiftRule = rule('F14 → Cmd+Alt+Ctrl').manipulators([
+    map('f14').to('right_command', ['⌥', '⌃'])
+])
+
+export const cmdTab = rule('⌘+tab → none').manipulators([
+    map('tab', ['⌘']).toNone()
+])
+
 
 // IME中にtoggle するとバグるので一旦利用しない
 // export const toggleImeRule = rule('IME binding Ctrl+\\', ifApp([apps.universalcontrol, apps.vnc]).unless()).manipulators([
