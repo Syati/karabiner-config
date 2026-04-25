@@ -29,7 +29,8 @@ const unlessApps = ifApp([
     apps.terminal,
     apps.ghostty,
     apps.vscode,
-    apps.vnc
+    apps.vnc,
+    apps.jumpdesktop
 ]).unless()
 
 
