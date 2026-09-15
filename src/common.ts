@@ -21,13 +21,9 @@ export const symbolMode = layer('/', 'symbol-mode').manipulators([
     ),
 ])
 
-
-export const f13ToHyperRule = rule('F13 → Hyper').manipulators([
-    map('f13').toHyper()
-])
-
-export const f14ToCtrlAltShiftRule = rule('F14 → Cmd+Alt+Ctrl').manipulators([
-    map('f14').to('right_command', ['⌥', '⌃'])
+export const f14ToCmdAltCtrlRule = rule('F14 → Cmd+Alt+Ctrl').manipulators([
+    map('f14').to('right_command', ['⌥', '⌃']),
+    map('f14', '⇧').toHyper()
 ])
 
 export const cmdTab = rule('⌘+tab → none').manipulators([
@@ -48,4 +44,3 @@ export const cmdTab = rule('⌘+tab → none').manipulators([
 //         language: '^ja$',
 //     })),
 // ])
-

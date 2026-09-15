@@ -9,13 +9,12 @@ import {
 import apps from "./apps";
 import emacsRules from "./emacsRules";
 import chromeRules from './chromeRule';
-import { symbolMode, f13ToHyperRule, f14ToCtrlAltShiftRule, cmdTab } from "./common";
+import { symbolMode, f14ToCmdAltCtrlRule, cmdTab } from "./common";
 
 
 writeToProfile('personal', [
     //symbolMode,
-    f13ToHyperRule,
-    f14ToCtrlAltShiftRule,
+    f14ToCmdAltCtrlRule,
     //cmdTab,
 
     rule('[Jetbrains] Basic keys', ifApp(apps.jetbrains)).manipulators([
